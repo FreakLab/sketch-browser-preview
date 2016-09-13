@@ -3,13 +3,17 @@
 var artboard = [[doc currentPage] currentArtboard] || [doc currentPage];
 
 if ([artboard class] == "MSPage") {
-    doc.showMessage("You must create almost an artboard.");
+    doc.showMessage("Please select an artboard.");
 } else {
     var artboardname = [artboard name];
     var filename = NSTemporaryDirectory() + artboardname + ".png";
-    [doc saveArtboardOrSlice:artboard toFile: filename];
 
-    var someContent = NSString.stringWithString_("<html><head><meta charset='UTF-8'></head><body style='text-align: center;    margin: 0; padding: 0; background: #" + [[artboard backgroundColor] hexValue] + ";'> <img src='./" + artboardname + ".png' center top no-repeat;'></body></html>");
+    var rect = [MSSliceTrimming trimmedRectForSlice:artboard];
+
+    var slice = [MSExportRequest requestWithRect:rect scale:2];
+    [doc saveArtboardOrSlice:slice toFile:filename];
+
+    var someContent = NSString.stringWithString_("<html><head><meta charset='UTF-8'></head><body style='text-align: center; margin: 0; padding: 0; background: #" + [[artboard backgroundColor] hexValue] + ";'> <img src='./" + artboardname + ".png' center top no-repeat;' style='width: 100vw; hight: auto;'></body></html>");
     var filepath = NSTemporaryDirectory() + artboardname + ".html";
     someContent.dataUsingEncoding_(NSUTF8StringEncoding).writeToFile_atomically_(filepath, true);
 
