@@ -4,8 +4,9 @@ Generates a preview of your current artboard and shows in your web browser.
 
 ##How to install it
 
-First of all you need to have [Sketch 3](http://bohemiancoding.com/sketch/) installed.
->Compatible with the current version 3.6 ( 26304 )
+First of all you need to have [Sketch](http://bohemiancoding.com/sketch/) installed.
+>Compatible with the current version 41 (35326)
+
 
 ###Use Sketch Toolbox (recommended)
 Use [Sketch Toolbox](http://sketchtoolbox.com/) to search for `Sketch Browser Preview` and click install.
