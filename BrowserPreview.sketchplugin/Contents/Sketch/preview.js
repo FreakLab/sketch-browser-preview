@@ -2,7 +2,7 @@
 
 var get_html = function(name, background) {
   return "<html><head><meta charset='UTF-8'></head>" +
-    "<body style='text-align: center;    margin: 0; padding: 0; background: " + background + ";'> <img src='./" + name + ".webp' center top no-repeat;'></body></html>";
+    "<body style='text-align: center;    margin: 0; padding: 0; background: " + background + ";'> <img src=\"./" + encodeURIComponent(name) + ".webp\" center top no-repeat;'></body></html>";
 }
 
 var get_background = function(artboard) {
